@@ -18,7 +18,7 @@ if(MSVC)
 endif()
 
 # Объявляем библиотеку
-add_library(functions SHARED "include/functions/vector_functions.h" "src/vector.cc")
+add_library(functions SHARED "src/vector.cc")
 target_include_directories(functions PUBLIC "include")
 
 # Подключаем googletest
@@ -28,6 +28,6 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Объявляем тесты
-add_executable(figures_tests "tests/vector_tests.cc")
-target_link_libraries(figures_tests functions GTest::gtest_main)
-
+add_executable(vector_tests "tests/vector_tests.cc")
+target_include_directories(vector_tests PUBLIC "include")
+target_link_libraries(vector_tests functions GTest::gtest_main)
