@@ -76,6 +76,14 @@ T Vector<T>::operator[](const int index) {
 }
 
 template <typename T>
+const T Vector<T>::operator[](const int index) const{
+	if (index > size) {
+		throw out_of_range("index out of range");
+	}
+	return this->coordinates[index];
+}
+
+template <typename T>
 Vector<T> Vector<T>::operator+(const Vector second_vector) {
 	if (size != second_vector.size)
 		throw invalid_argument("sizes are not equal");

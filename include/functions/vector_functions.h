@@ -14,6 +14,7 @@ namespace vlad {
 		Vector(int vector_size, T lowest, T highest);
 
 		T operator[](int index);
+		const T operator[](int index) const;
 
 		bool operator==(Vector second_vector) const;
 
